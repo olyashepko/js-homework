@@ -18,32 +18,32 @@
 // zadacha 3 
 // "use strict";
 
-// function ask(question, answer, ok, fail) {
-//   var result = prompt(question, '');
-//   if (result.toLowerCase() == answer.toLowerCase()) ok();
-//   else fail();
-// }
+function ask(question, answer, ok, fail) {
+  var result = prompt(question, '');
+  if (result.toLowerCase() == answer.toLowerCase()) ok();
+  else fail();
+}
 
-// var user = {
-//   login: 'Василий',
-//   password: '12345',
+var user = {
+  login: 'Василий',
+  password: '12345',
 
-//   loginOk: function() {
-//     alert( this.login + ' вошёл в сайт' );
-//   },
+  loginOk: function() {
+    alert( this.login + ' вошёл в сайт' );
+  },
 
-//   loginFail: function() {
-//     alert( this.login + ': ошибка входа' );
-//   },
+  loginFail: function() {
+    alert( this.login + ': ошибка входа' );
+  },
 
-//   checkPassword: function() {
-//     ask("Ваш пароль?", this.password, this.loginOk.bind(this), this.loginFail.bind(this));
-//   }
-// };
+  checkPassword: function() {
+    ask("Ваш пароль?", this.password, this.loginOk.bind(this), this.loginFail);
+  }
+};
 
-// var vasya = user;
-// user = null;
-// vasya.checkPassword();
+var vasya = user;
+user = null;
+vasya.checkPassword();
 
 
 // 4 
@@ -140,13 +140,22 @@
 
 // console.log (sumArgs(1,5,3,6));
 
-function applyAll (func) {
-    return func.apply(this,[].slice.call(arguments,1));
-};
-function sum() {
-    return [].reduce.call(arguments, function(a, b) {
-      return a + b;
-    });
-  };
-  console.log( applyAll(sum, 1, 2, 3) );
+// function applyAll (func) {
+//     return func.apply(this,[].slice.call(arguments,1));
+// };
+// function sum() {
+//     return [].reduce.call(arguments, function(a, b) {
+//       return a + b;
+//     });
+//   };
+//   console.log( applyAll(sum, 1, 2, 3) );
   
+
+var user = {
+  name : 'artem',
+  age: 20,
+  getAge: function(){
+    return this.age;
+  }
+}
+console.log(user.getAge());
